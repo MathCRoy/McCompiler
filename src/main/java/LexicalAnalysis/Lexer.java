@@ -1,7 +1,7 @@
 package LexicalAnalysis;
 
-import Exceptions.TokenGenerationException;
 import java.util.Optional;
+import Exceptions.TokenGenerationException;
 
 public class Lexer {
 
@@ -64,7 +64,7 @@ public class Lexer {
         currentPosition++;
       } while (currentPosition < EOF && Character.isDigit(code.charAt(currentPosition)));
 
-      if (!(code.charAt(currentPosition) == '.')) {
+      if (currentPosition == EOF || !(code.charAt(currentPosition) == '.')) {
         return Optional.of(
             new Token(TokenType.LIT_INT, code.substring(startPosition, currentPosition)));
       } else {
@@ -86,8 +86,9 @@ public class Lexer {
       if (currentPosition < EOF) {
         currentPosition++;
         if (currentPosition < EOF && code.charAt(currentPosition) == '\'') {
+          currentPosition++;
           return Optional.of(
-              new Token(TokenType.LIT_CHAR, Character.toString(code.charAt(currentPosition - 1))));
+              new Token(TokenType.LIT_CHAR, Character.toString(code.charAt(currentPosition - 2))));
         } else {
           throw new TokenGenerationException(code.substring(startPosition, currentPosition));
         }
@@ -104,7 +105,7 @@ public class Lexer {
         currentPosition++;
       } while (currentPosition < EOF && !(code.charAt(currentPosition) == '\"'));
 
-      if (!(code.charAt(currentPosition) == '\"'))
+      if (currentPosition == EOF || !(code.charAt(currentPosition) == '\"'))
         throw new TokenGenerationException(code.substring(startPosition, currentPosition));
 
       currentPosition++;
