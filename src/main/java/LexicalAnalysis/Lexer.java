@@ -19,7 +19,7 @@ public class Lexer {
     tokenMap = TokenMap.getInstance();
   }
 
-  public Token getNextToken() throws TokenGenerationException {
+  public Token getNextToken() {
 
     startPosition = currentPosition;
 
@@ -50,7 +50,10 @@ public class Lexer {
   }
 
   private Optional<Token> getEosToken() {
-    if (code.charAt(currentPosition) == ';') return Optional.of(new Token(TokenType.EOS, ""));
+    if (code.charAt(currentPosition) == ';') {
+      currentPosition++;
+      return Optional.of(new Token(TokenType.EOS, ""));
+    }
     return Optional.empty();
   }
 
@@ -77,7 +80,7 @@ public class Lexer {
     return Optional.empty();
   }
 
-  private Optional<Token> getCharToken() throws TokenGenerationException {
+  private Optional<Token> getCharToken() {
     if (code.charAt(currentPosition) == '\'') {
       currentPosition++;
       if (currentPosition < EOF) {
@@ -95,7 +98,7 @@ public class Lexer {
     return Optional.empty();
   }
 
-  private Optional<Token> getStringToken() throws TokenGenerationException {
+  private Optional<Token> getStringToken() {
     if (code.charAt(currentPosition) == '\"') {
       do {
         currentPosition++;

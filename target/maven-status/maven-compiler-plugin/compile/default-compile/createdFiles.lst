@@ -1,0 +1,5 @@
+Exceptions/TokenGenerationException.class
+LexicalAnalysis/TokenMap.class
+LexicalAnalysis/Lexer.class
+LexicalAnalysis/Token.class
+LexicalAnalysis/TokenType.class
