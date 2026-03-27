@@ -1,5 +1,6 @@
 /home/mcr/Documents/Workspace/McCompilier/src/main/java/LexicalAnalysis/Token.java
 /home/mcr/Documents/Workspace/McCompilier/src/main/java/Exceptions/TokenGenerationException.java
+/home/mcr/Documents/Workspace/McCompilier/src/main/java/Main.java
 /home/mcr/Documents/Workspace/McCompilier/src/main/java/LexicalAnalysis/TokenType.java
 /home/mcr/Documents/Workspace/McCompilier/src/main/java/LexicalAnalysis/TokenMap.java
 /home/mcr/Documents/Workspace/McCompilier/src/main/java/LexicalAnalysis/Lexer.java
