@@ -1,3 +1,3 @@
 package LexicalAnalysis;
 
-public record Token(TokenType tokenType, String lexeme){}
+public record Token(TokenType tokenType, String lexeme) {}
